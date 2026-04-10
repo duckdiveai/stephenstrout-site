@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stephen Strout | Film Editor & Producer</title>
+    <meta
+      name="description"
+      content="Portfolio website for Los Angeles film editor and producer Stephen Strout, featuring profile, projects, and contact information."
+    />
+    <meta
+      name="keywords"
+      content="Stephen Strout, film editor, producer, Los Angeles editor, documentary editor, projects"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Stephen Strout | Film Editor & Producer" />
+    <meta
+      property="og:description"
+      content="Profile, projects, and contact for Los Angeles film editor and producer Stephen Strout."
+    />
+    <meta property="og:image" content="/public/portfolio/social-share-placeholder.svg" />
+    <meta property="og:url" content="https://stephenstrout.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="#profile" aria-label="Go to profile">
+        <span class="brand-mark">
+          <img src="/public/portfolio/stills/Ss_02.png" alt="Stephen Strout" />
+        </span>
+        <span class="brand-text">
+          <span id="brand-name">Stephen Strout</span>
+          <span id="brand-title">Film Editor / Producer</span>
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span>Menu</span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <a href="#profile">PROFILE</a>
+        <a href="#projects">PROJECTS</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section id="profile" class="section profile-hero">
+        <div class="profile-hero-visual reveal">
+          <video
+            class="profile-hero-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            aria-label="Field Generals trailer background video"
+          >
+            <source src="/public/portfolio/video/Field_Generals_Trailer01.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div class="profile-hero-title reveal">
+          <h1 id="profile-title"></h1>
+        </div>
+      </section>
+
+      <section class="section profile-body">
+        <div class="profile-body-flow">
+          <div id="profile-paragraphs" class="profile-paragraphs reveal"></div>
+          <div class="profile-panel reveal">
+            <p class="eyebrow">Critical Acclaim</p>
+            <p id="recognition-text" class="sidebar-copy"></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section projects-section">
+        <div class="projects-page-head reveal">
+          <h2>Projects</h2>
+          <p id="projects-intro" class="section-intro"></p>
+        </div>
+
+        <div id="projects-list" class="projects-list"></div>
+      </section>
+
+      <section id="contact" class="section contact-section">
+        <figure class="profile-landing-gif reveal">
+          <img src="/public/portfolio/video/SS_LANDING_PAGE.gif" alt="Stephen Strout landing page animation" />
+        </figure>
+        <div class="contact-card reveal">
+          <h2 id="contact-heading"></h2>
+          <p id="contact-body" class="section-intro"></p>
+          <div class="contact-actions">
+            <a id="email-link" class="button button-primary" href="#">Email Stephen</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p id="footer-line"></p>
+    </footer>
+
+    <script type="module" src="scripts/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,210 @@
+PORTFOLIO WEBSITE CONTENT TEMPLATE
+
+Fill this out in plain language. It does not need to be perfect.
+The coding agent can turn this into polished website content.
+
+========================================
+BASIC INFO
+========================================
+
+Name: Stephen Strout
+
+Professional title / tagline: Film Editor/Producer based in Los Angeles
+Example: Film Editor based in Los Angeles
+
+Location:  Los Angeles, CA
+Example: Los Angeles, CA
+
+Contact email:  stephenstrout@me.com
+
+IMDb link:  https://www.imdb.com/name/nm0835200/?ref_=nv_sr_srsg_0_tt_0_nm_4_in_0_q_stephen%20B%20Strout
+
+Vimeo link:
+
+Instagram link:
+
+Other links:  stephenstrout.com
+
+========================================
+SHORT BIO
+========================================
+
+Write 2 to 5 sentences about yourself.
+Include the kind of work you edit, your style, notable collaborators or networks if relevant, and what kind of projects you want to keep doing.
+
+Bio:  I am best known for editing documentaries and films.  I made my directorial debut with the award winning feature documentary, Revolution Green.  I won a Peabody Award for Best Documentary editing, Black Sky: The Race For Space, and a Telly Award for the feature trailer, Lone Survivor.  Throughout my career my editing is critically acclaimed, with multiple Emmy nominations and 1 win, with Peter Berg, Rory Kennedy, Mark Bailey, Zackary Drucker, Maria Taylor, Christopher Cowen, Emmett and Brendan Malloy, and Academy Award winners Eric Simonson and Richard Trank.  
+
+
+
+========================================
+FEATURED PROJECTS
+========================================
+
+Add your strongest 4 to 8 projects first.
+Duplicate the block below for more projects.
+
+PROJECT 1
+Title: Field Generals: History Of The Black Quarterback
+Type: Documentary series 
+Example: Feature Film / Series / Short / Documentary / Branded / Trailer
+
+Year: 2026
+
+Role: Editor
+Example: Editor / Additional Editor / Co-Editor
+
+Short description:  As recently as 1968, it was widely believed in the NFL that players like Marlin Briscoe, Joe Gilliam and James Harris lacked the character to play QB. Star college QBs like Tony Dungy are switched to lesser positions by their pro teams; others, like future Hall of Famer Warren Moon, take alternative routes.  While Ronald Reagan campaigns and governs on a wave of white backlash against Black progress, Doug Williams endures racial bias and personal tragedy to become the first Black QB to win a Super Bowl.  Eventually Randall Cunningham, Donovan McNabb and Michael Vick revolutionized how the position would be played forever.
+
+Director: Rikki Hughes
+
+Production company / studio / network:  Broadway Video/Magic Lemonade/NFL Films/NBC Sports
+
+Trailer link: https://www.youtube.com/watch?v=lUJlbb5lVA8
+
+Project page link: https://www.peacocktv.com/blog/watch-peacocks-field-generals-history-of-the-black-quarterback
+
+Image filename: Field_Generals
+Example: project-1-onesheet.jpg
+
+
+PROJECT 2
+Title: Enigma
+Type: Documentary film
+
+Year: 2025
+
+Role: Producer
+
+Short description: Acclaimed filmmaker Zackary Drucker explores questions of identity and survival, revealing the disparate but intertwined stories of iconic pioneers April Ashley and Amanda Lear.  Their experiences, varied and complex, highlight the costs associated with living their truths and explore what is gained and lost by defining their identities. The film had its world premiere at the 2025 Sundance Film Festival.
+
+Director: Zackary Drucker
+
+Production company / studio / network: Pacific Films/Story Syndicate/5 All In The Fifth/HBO 
+
+Trailer link: https://www.youtube.com/watch?v=QyV0pqwjJXk
+
+Project page link: https://www.hbomax.com/movies/enigma/b4ce423a-0c50-4a36-9e7d-3a9bc30530cf
+
+Image filename: Enigma2
+
+
+PROJECT 3
+Title: The Synanon Fix: Did The Cure Become A Cult
+Type: Documentary series
+
+Year: 2024
+
+Role: Co-editor
+
+Short description: The Synanon Fix is an American documentary series directed and produced by Rory Kennedy. It explores the rise and fall of Synanon, told through the eyes of former members, into its descent into a cult.  The Synanon Fix had its world premiere at the 2024 Sundance Film Festival.
+
+Director: Rory Kennedy
+
+Production company / studio / network: Moxie Films/HBO
+
+Trailer link: https://www.youtube.com/watch?v=Y8Z8xMmly1M
+
+Project page link:
+
+Image filename:
+
+
+PROJECT 4
+Title: Saudi Pro League: Kickoff
+Type: Documentary series
+
+Year: 2024
+
+Role: Editor
+
+Short description: Dive deep into the high-stakes world of Saudi football, with an insider’s view into 5 clubs competing for the title of Saudi Pro League champion, Al Nassr, Al Hilal, Al Ittihad, Al Ahli, and Al Etiffaq.  With the arrival of Ronaldo to the Saudi Pro League, fans witness Ronaldo’s impact on Al Nassr, as he drives the team with his relentless pursuit of victory, Benzema’s journey as he grapples with the weight of expectations at Al Ittihad, the tension at Al Hilal surrounding Neymar’s injury, and the rising local talent like Salem Al Dawsari (Al Hilal), Feras Al Buraikan (Al Ahli), Talal Haji (Al Ittihad), and Abdulrahman Ghareeb (Al Nassr), showcasing the depth and passion of Saudi football’s next generation.
+
+
+
+Director:
+
+Production company / studio / network: Whisper/Netflix
+
+Trailer link: https://www.youtube.com/watch?v=2ivIYBD4tfQ
+
+Project page link: https://www.netflix.com/title/81783473
+
+Image filename: Saudi_Pro_League_Kickoff
+
+
+========================================
+SELECTED CREDITS
+========================================
+
+List additional credits you want shown on the site.
+One per line is fine.
+
+- On Freddie Roach
+- Black Sky: The Race For Space
+- State Of Play
+- Chasing Waves
+- Epic Bill
+
+
+========================================
+VISUAL / BRAND NOTES
+========================================
+
+What feeling should the website have?
+Examples: cinematic, elegant, bold, minimal, moody, warm, clean, premium
+
+Visual direction: Elegant, bold, minimal, cinematic
+
+Colors you like: Black, white, blue, orange, red
+
+Colors to avoid: saturated purples, pinks
+
+Sites or portfolios you like:
+
+Anything you definitely do NOT want: cluttered, disorganized
+
+
+========================================
+IMAGES CHECKLIST
+========================================
+
+Put your 1-sheet images into the repo when the coding agent creates the folders.
+If you already know the filenames, list them here.
+
+- Above_And_Beyond
+- Against_The_Tide
+- Billions_In_Change
+- Black_Sky_The_Race-For_Space
+- Chasing_Waves
+- Delta_Divers
+- Enigma2
+- Field_Generals
+- Into_Pitch_Black
+- Karaoke_Superstars
+- Maldita
+- On_Freddie_Roach
+- Pete_and_Ss_cutting_In_NYC
+- Pete_And_Steve_cutting_In_NYC
+- Revolution_Green
+- Saudi_Pro_League_Kickoff
+- Ss_Editing_In_NYC
+- State Of Play_First Wives
+- State_Of_Play_Broken
+- State_Of_Play_Culture_Shock
+- State_Of_Play_Fighting_Chance3
+- State_Of_Play_Trophy Kids
+- The_New_Normal
+- The_Real_Robin_Hood
+- The_Synanon_Fix
+- Will_Of_The_Warrior
+
+
+
+
+
+========================================
+OPTIONAL NOTES
+========================================
+
+Anything else the coding agent should know: I want this to be a landing page, gallery/portfolio page and a contact page.  I want it to be cool and modern.  There is an element of simplicity with this site.  I like the possibility of seeing video from the trailers of projects I cut, used as visual elements on the site.  I would like the ability for each 1sheet displayed in my portfolio to be a link to the platform.  Cool and modern, professional, creative, out on the vanguard vibe.  This is being built for stephenstrout.com so I can build my edit branding for myself as a tastemaker in cinema.  An established body of work, growing into the 21st century. 
+
