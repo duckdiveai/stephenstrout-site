@@ -86,6 +86,46 @@ const renderProjects = async () => {
   const list = document.querySelector("#projects-list");
   if (!list) return;
 
+  if (window.matchMedia("(max-width: 980px)").matches) {
+    const mobileOrder = [
+      "field-generals-history-of-the-black-quarterback",
+      "enigma",
+      "saudi-pro-league-kickoff",
+      "the-synanon-fix-did-the-cure-become-a-cult",
+      "epic-bill",
+      "chasing-waves",
+      "on-freddie-roach",
+      "above-and-beyond",
+      "state-of-play-fighting-chance-3",
+      "state-of-play-fighting-chance-2",
+      "state-of-play-fighting-chance",
+      "state-of-play-culture-shock",
+      "state-of-play-broken",
+      "state-of-play-first-wives",
+      "state-of-play-trophy-kids",
+      "black-sky-the-race-for-space",
+      "revolution-green",
+      "the-real-robin-hood",
+      "the-new-normal",
+      "maldita",
+      "delta-divers",
+      "against-the-tide",
+      "karaoke-superstars",
+      "will-of-the-warrior",
+    ];
+
+    const bySlug = new Map(siteContent.projects.map((project) => [project.slug, project]));
+    const orderedProjects = mobileOrder
+      .map((slug) => bySlug.get(slug))
+      .filter(Boolean);
+
+    for (const [index, project] of orderedProjects.entries()) {
+      const card = await createProjectCard(project, index);
+      list.appendChild(card);
+    }
+    return;
+  }
+
   const bySlug = new Map(siteContent.projects.map((project) => [project.slug, project]));
   const leftColumn = document.createElement("div");
   leftColumn.className = "projects-column projects-column--left";
