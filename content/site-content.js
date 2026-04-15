@@ -9,20 +9,20 @@ export const siteContent = {
   },
   profile: {
     kicker: "Profile",
-    title: "Editing For The New Millenium",
+    title: "",
     intro:
       "Stephen Strout is a documentary editor, producer, and director based in Los Angeles.",
     paragraphs: [
-      "Stephen is best known for editing documentaries and feature films. He made his directorial debut with the award-winning feature documentary <em>Revolution Green</em>. He won a Peabody Award for documentary editing for <em>Black Sky: The Race For Space</em> and a Telly Award for the feature trailer <em>Lone Survivor</em>. Throughout his career, his editing has been critically acclaimed, earning multiple Emmy nominations and one win through collaborations with Peter Berg, Rory Kennedy, Mark Bailey, Zackary Drucker, Maria Taylor, Christopher Cowen, Emmett and Brendan Malloy, and Academy Award winners Eric Simonson and Richard Trank.",
+      "Stephen is best known for editing and producing documentaries and feature films. He is a turn-around specialist, editing and creating deep emotions from minimal, creative assets. He made his directorial debut with the award-winning, feature documentary, <em>Revolution Green</em>. He won a Peabody Award for editing <em>Black Sky: The Race For Space</em> and a Telly Award for the feature, Regal Cinema trailer, Peter Berg's film, <em>Lone Survivor</em>. Throughout his career, his editing has been critically acclaimed, earning multiple Emmy nominations and one win, through collaborations with: Peter Berg, Rory Kennedy, Mark Bailey, Zackary Drucker, Maria Taylor, Christopher Cowen, Emmett and Brendan Malloy, and Academy Award winners Eric Simonson and Richard Trank.",
     ],
     recognition:
-      "Peabody Award-2005, Black Sky: The Race For Space\nGolden Cine Eagle-2005, Black Sky: The Race For Space\nTelly Award-2013, Lone Survivor Trailer\nEmmy winner-2016, State Of Play-Fighting Chance\nEmmy Nomination-2026, Enigma\nCinema Eye Nomination-2026, Enigma\nGLAAD Outstanding Documentary Nomination-2026",
+      "<strong>Peabody Award</strong>, 2005-<em>Black Sky: The Race For Space</em>\n<strong>Golden Cine Eagle</strong>, 2005-<em>Black Sky: The Race For Space</em>\n<strong>Telly Award</strong>, 2013-<em>Lone Survivor Trailer</em>\n<strong>Emmy Winner</strong>, 2016-<em>State Of Play-Fighting Chance</em>\n<strong>Sundance Premiere</strong>, 2024-<em>The Synanon Fix</em>\n<strong>Sundance Premiere</strong>, 2025-<em>Enigma</em>\n<strong>Emmy Nomination</strong>, 2026-<em>Enigma</em>\n<strong>Cinema Eye Nomination</strong>, 2026-<em>Enigma</em>\n<strong>GLAAD Outstanding Documentary Nomination</strong>, 2026-<em>Enigma</em>",
   },
   projectsIntro:
     "A selected list of films and series, with a behind the scenes story about the inception of each project.",
   contact: {
-    heading: "CONTACT",
-    body: "For editorial collaborations, producing work, or availability inquiries, email is the best way to reach Stephen directly.",
+    heading: "so, you like what you see?",
+    body: "",
   },
   projects: [
     {
@@ -172,7 +172,7 @@ export const siteContent = {
       layout: "tall",
       title: "Maldita",
       year: "Year to add",
-      imageBaseName: "Maldita",
+      imageBaseName: "Maldita2",
       posterAlt: "One-sheet artwork for Maldita",
       links: [],
     },

@@ -276,6 +276,10 @@ button {
   text-align: left;
 }
 
+.profile-hero-title[hidden] {
+  display: none;
+}
+
 .profile-hero-video {
   width: 100%;
   height: 100%;
@@ -293,7 +297,7 @@ button {
 
 .profile-body {
   border-top: 1px solid var(--line);
-  padding-top: 1rem;
+  padding-top: 0.4rem;
 }
 
 .profile-body-flow {
@@ -328,8 +332,7 @@ button {
   white-space: pre-line;
 }
 
-.profile-panel,
-.contact-card {
+.profile-panel {
   border-top: 1px solid var(--line);
   padding-top: 1rem;
 }
@@ -338,23 +341,72 @@ button {
   margin-top: 1.8rem;
 }
 
+.acclaim-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 19.5rem);
+  gap: 2rem;
+  align-items: start;
+}
+
+.acclaim-copy {
+  min-width: 0;
+}
+
+.acclaim-media {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+  width: 17rem;
+  justify-self: end;
+  align-items: center;
+}
+
+.acclaim-portrait {
+  margin: 0;
+  width: 100%;
+}
+
+.acclaim-portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.acclaim-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  width: 100%;
+  justify-content: center;
+}
+
 .imdb-link {
-  padding: 0.7rem 0.9rem;
+  min-width: auto;
+  min-height: auto;
+  padding: 0;
   background: #f5c518;
   border-color: #d8af00;
   color: #111;
+  border-radius: 999px;
 }
 
 .imdb-link-mark {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 3rem;
-  padding: 0.12rem 0.42rem;
-  background: #111;
-  color: #f5c518;
-  border-radius: 7px;
+  min-width: 0;
+  padding: 0.42rem 0.78rem;
+  background: transparent;
+  color: #111;
+  border-radius: 0;
   font-weight: 800;
+  font-size: 0.82rem;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.cv-link .imdb-link-mark {
+  min-width: 2.4rem;
 }
 
 .projects-section {
@@ -366,33 +418,85 @@ button {
 .contact-section {
   width: min(calc(100% - 2rem), var(--max-width));
   margin: 0 auto;
-  padding-top: 1rem;
-}
-
-.contact-section .profile-landing-gif {
-  width: min(100%, 39.5rem);
-  margin: 0 0 -1.25rem 3.5rem;
-  overflow: hidden;
-  max-height: 15.5rem;
+  padding-top: 4.8rem;
+  padding-bottom: 4.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-top: 0 !important;
+  background-image: none !important;
 }
 
 .contact-card {
   width: min(100%, 39.5rem);
-  margin-left: 6.5rem;
-  padding-top: 0.05rem;
+  margin: 0 auto;
+  padding-top: 0;
+  text-align: center;
+  border: 0 !important;
+  box-shadow: none;
+  outline: 0;
+  background-image: none !important;
 }
 
-.contact-section .profile-landing-gif img {
-  margin-bottom: -5.5rem;
+.contact-section::before,
+.contact-section::after,
+.contact-card::before,
+.contact-card::after {
+  content: none !important;
+  border: 0 !important;
+  background: none !important;
 }
 
 .contact-card h2 {
-  font-family: "Manrope", sans-serif;
-  font-size: 0.89rem;
+  font-family: "Instrument Serif", serif;
+  font-size: clamp(1.3rem, 2.6vw, 2.05rem);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
+  text-transform: none;
+  background: transparent;
+  padding: 0;
+}
+
+.contact-actions {
+  margin-top: 0.9rem;
+  justify-content: center;
+}
+
+.contact-cta {
+  min-width: 12.8rem;
+  min-height: 4rem;
+  padding: 1rem 1.5rem;
+  border-radius: 0;
+  border-color: var(--line-strong);
+  background: transparent;
+  color: #111;
+  font-size: 0.95rem;
   font-weight: 800;
-  letter-spacing: 0.22em;
-  line-height: 1.2;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
+}
+
+.site-footer {
+  width: 100%;
+  max-width: none;
+  padding: 1.25rem 0 0;
+  overflow: visible;
+}
+
+.site-footer-image {
+  margin: 0;
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+}
+
+.site-footer-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 .projects-page-head {
@@ -495,9 +599,11 @@ button {
 }
 
 .site-footer {
-  width: min(calc(100% - 2rem), var(--max-width));
-  padding: 1.8rem 0 2rem;
+  width: 100%;
+  max-width: none;
+  padding: 1.25rem 0 0;
   font-size: 0.9rem;
+  margin: 0;
 }
 
 .project-detail-page {
@@ -598,18 +704,22 @@ button {
   .site-header.is-open .site-nav {
     display: flex;
   }
-
-  .projects-columns {
-    grid-template-columns: 1fr;
-  }
 }
 
 @media (max-width: 640px) {
   .site-header,
   .section,
-  .site-footer,
   .projects-section {
     width: min(calc(100% - 1rem), 1380px);
+  }
+
+  .site-footer {
+    width: 100%;
+  }
+
+  .site-footer-image {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
   }
 
   .section {
@@ -626,6 +736,14 @@ button {
 
   .profile-body-flow {
     width: min(calc(100% - 1rem), 48rem);
+  }
+
+  .acclaim-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .acclaim-media {
+    width: min(100%, 19.5rem);
   }
 
   .profile-hero-title {
@@ -653,7 +771,11 @@ button {
     width: 100%;
   }
 
-  .imdb-link {
+  .acclaim-actions {
+    width: 100%;
+  }
+
+  .acclaim-actions .imdb-link {
     width: fit-content;
   }
 

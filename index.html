@@ -28,7 +28,7 @@
       href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260415c" />
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -79,8 +79,29 @@
         <div class="profile-body-flow">
           <div id="profile-paragraphs" class="profile-paragraphs reveal"></div>
           <div class="profile-panel reveal">
-            <p class="eyebrow">Critical Acclaim</p>
-            <p id="recognition-text" class="sidebar-copy"></p>
+            <div class="acclaim-layout">
+              <div class="acclaim-copy">
+                <p class="eyebrow">Critical Acclaim</p>
+                <p id="recognition-text" class="sidebar-copy"></p>
+              </div>
+              <aside class="acclaim-media">
+                <figure class="acclaim-portrait">
+                  <img
+                    id="profile-photo"
+                    src="/public/portfolio/stills/Stephen-Strout-Editor-Producer.png"
+                    alt="Stephen Strout portrait"
+                  />
+                </figure>
+                <div class="acclaim-actions">
+                  <a id="profile-imdb-link" class="imdb-link" href="#" aria-label="IMDb Profile" title="IMDb Profile">
+                    <span class="imdb-link-mark" aria-hidden="true">IMDb</span>
+                  </a>
+                  <a id="profile-cv-link" class="imdb-link cv-link" href="#" download>
+                    <span class="imdb-link-mark" aria-hidden="true">CV</span>
+                  </a>
+                </div>
+              </aside>
+            </div>
           </div>
         </div>
       </section>
@@ -95,23 +116,21 @@
       </section>
 
       <section id="contact" class="section contact-section">
-        <figure class="profile-landing-gif reveal">
-          <img src="/public/portfolio/video/SS_LANDING_PAGE.gif" alt="Stephen Strout landing page animation" />
-        </figure>
         <div class="contact-card reveal">
           <h2 id="contact-heading"></h2>
-          <p id="contact-body" class="section-intro"></p>
           <div class="contact-actions">
-            <a id="email-link" class="button button-primary" href="#">Email Stephen</a>
+            <a id="email-link" class="button contact-cta" href="#">Say Hello</a>
           </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p id="footer-line"></p>
+      <figure class="site-footer-image">
+        <img src="/public/portfolio/stills/PETE_and_Ss_cutting_In_NYC_bottom.png" alt="Stephen Strout editing in New York" />
+      </figure>
     </footer>
 
-    <script type="module" src="scripts/app.js"></script>
+    <script type="module" src="scripts/app.js?v=20260415f"></script>
   </body>
 </html>

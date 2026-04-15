@@ -9,6 +9,13 @@ const setText = (selector, value) => {
   }
 };
 
+const setHTML = (selector, value) => {
+  const element = document.querySelector(selector);
+  if (element) {
+    element.innerHTML = value;
+  }
+};
+
 const createLink = (href, label, className = "text-link") => {
   if (!href) return null;
   const link = document.createElement("a");
@@ -86,46 +93,6 @@ const renderProjects = async () => {
   const list = document.querySelector("#projects-list");
   if (!list) return;
 
-  if (window.matchMedia("(max-width: 980px)").matches) {
-    const mobileOrder = [
-      "field-generals-history-of-the-black-quarterback",
-      "enigma",
-      "saudi-pro-league-kickoff",
-      "the-synanon-fix-did-the-cure-become-a-cult",
-      "epic-bill",
-      "chasing-waves",
-      "on-freddie-roach",
-      "above-and-beyond",
-      "state-of-play-fighting-chance-3",
-      "state-of-play-fighting-chance-2",
-      "state-of-play-fighting-chance",
-      "state-of-play-culture-shock",
-      "state-of-play-broken",
-      "state-of-play-first-wives",
-      "state-of-play-trophy-kids",
-      "black-sky-the-race-for-space",
-      "revolution-green",
-      "the-real-robin-hood",
-      "the-new-normal",
-      "maldita",
-      "delta-divers",
-      "against-the-tide",
-      "karaoke-superstars",
-      "will-of-the-warrior",
-    ];
-
-    const bySlug = new Map(siteContent.projects.map((project) => [project.slug, project]));
-    const orderedProjects = mobileOrder
-      .map((slug) => bySlug.get(slug))
-      .filter(Boolean);
-
-    for (const [index, project] of orderedProjects.entries()) {
-      const card = await createProjectCard(project, index);
-      list.appendChild(card);
-    }
-    return;
-  }
-
   const bySlug = new Map(siteContent.projects.map((project) => [project.slug, project]));
   const leftColumn = document.createElement("div");
   leftColumn.className = "projects-column projects-column--left";
@@ -135,23 +102,31 @@ const renderProjects = async () => {
 
   const columns = document.createElement("div");
   columns.className = "projects-columns";
+  const desktopHiddenSlugs = new Set([
+    "state-of-play-fighting-chance",
+    "state-of-play-fighting-chance-3",
+  ]);
 
   const leftOrder = [
     "saudi-pro-league-kickoff",
     "on-freddie-roach",
+    "state-of-play-trophy-kids",
   ];
 
   const rightOrder = [
     "field-generals-history-of-the-black-quarterback",
     "enigma",
     "the-synanon-fix-did-the-cure-become-a-cult",
-    "epic-bill",
+    "the-new-normal",
+    "state-of-play-fighting-chance-2",
     "state-of-play-culture-shock",
+    "state-of-play-broken",
   ];
 
   const pinned = new Set([...leftOrder, ...rightOrder]);
 
   for (const [index, slug] of leftOrder.entries()) {
+    if (desktopHiddenSlugs.has(slug)) continue;
     const project = bySlug.get(slug);
     if (!project) continue;
     const card = await createProjectCard(project, index);
@@ -162,6 +137,7 @@ const renderProjects = async () => {
   }
 
   for (const [index, slug] of rightOrder.entries()) {
+    if (desktopHiddenSlugs.has(slug)) continue;
     const project = bySlug.get(slug);
     if (!project) continue;
     const card = await createProjectCard(project, index + leftOrder.length);
@@ -172,13 +148,9 @@ const renderProjects = async () => {
   }
 
   const priorityRemaining = [
-    "chasing-waves",
+    "epic-bill",
     "above-and-beyond",
-    "state-of-play-trophy-kids",
-    "state-of-play-fighting-chance-2",
-    "state-of-play-fighting-chance",
-    "state-of-play-fighting-chance-3",
-    "state-of-play-broken",
+    "chasing-waves",
     "state-of-play-first-wives",
     "black-sky-the-race-for-space",
     "into-pitch-black",
@@ -188,12 +160,13 @@ const renderProjects = async () => {
 
   for (const [index, slug] of priorityRemaining.entries()) {
     if (pinned.has(slug)) continue;
+    if (desktopHiddenSlugs.has(slug)) continue;
     const project = bySlug.get(slug);
     if (!project) continue;
     const card = await createProjectCard(project, index + leftOrder.length + rightOrder.length);
-    if (slug === "chasing-waves" || slug === "above-and-beyond" || slug === "state-of-play-trophy-kids" || slug === "black-sky-the-race-for-space") {
+    if (slug === "epic-bill" || slug === "above-and-beyond" || slug === "black-sky-the-race-for-space") {
       leftColumn.appendChild(card);
-    } else if (slug === "state-of-play-fighting-chance-3" || slug === "into-pitch-black") {
+    } else if (slug === "into-pitch-black") {
       rightColumn.appendChild(card);
     } else if (index % 2 === 0) {
       leftColumn.appendChild(card);
@@ -203,7 +176,7 @@ const renderProjects = async () => {
   }
 
   const remainingProjects = siteContent.projects.filter(
-    (project) => !pinned.has(project.slug) && !prioritySet.has(project.slug)
+    (project) => !pinned.has(project.slug) && !prioritySet.has(project.slug) && !desktopHiddenSlugs.has(project.slug)
   );
 
   for (const [index, project] of remainingProjects.entries()) {
@@ -271,9 +244,21 @@ const setupReveal = () => {
 const setupEmailCopy = () => {
   const emailLink = document.querySelector("#email-link");
   const copyButton = document.querySelector("#copy-email");
+  const profileImdbLink = document.querySelector("#profile-imdb-link");
+  const profileCvLink = document.querySelector("#profile-cv-link");
 
   if (emailLink) {
     emailLink.href = `mailto:${siteContent.site.email}`;
+  }
+
+  if (profileImdbLink) {
+    profileImdbLink.href = siteContent.site.imdb;
+    profileImdbLink.target = "_blank";
+    profileImdbLink.rel = "noreferrer";
+  }
+
+  if (profileCvLink) {
+    profileCvLink.href = "/public/STEPHEN-STROUT-CV-2026.pdf";
   }
 
   if (!copyButton) return;
@@ -319,11 +304,16 @@ const populatePage = () => {
   setText("#profile-kicker", siteContent.profile.kicker);
   setText("#profile-title", siteContent.profile.title);
   setText("#profile-intro", siteContent.profile.intro);
-  setText("#recognition-text", siteContent.profile.recognition);
+  setHTML("#recognition-text", siteContent.profile.recognition);
   setText("#projects-intro", siteContent.projectsIntro);
   setText("#contact-heading", siteContent.contact.heading);
   setText("#contact-body", siteContent.contact.body);
   setText("#footer-line", `${siteContent.site.name} • ${siteContent.site.title}`);
+
+  const titleWrap = document.querySelector(".profile-hero-title");
+  if (titleWrap && !siteContent.profile.title?.trim()) {
+    titleWrap.hidden = true;
+  }
 
   const paragraphs = document.querySelector("#profile-paragraphs");
   siteContent.profile.paragraphs.forEach((paragraph) => {
