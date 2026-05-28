@@ -29,6 +29,67 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css?v=20260415c" />
+    <style>
+      .profile-hero-visual {
+        position: relative;
+      }
+      .video-audio-controls {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        z-index: 10;
+        background: rgba(0, 0, 0, 0.4);
+        padding: 8px 14px;
+        border-radius: 24px;
+        backdrop-filter: blur(6px);
+      }
+      .mute-btn {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        opacity: 0.85;
+        transition: opacity 0.2s;
+      }
+      .mute-btn:hover {
+        opacity: 1;
+      }
+      .volume-slider {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 80px;
+        height: 3px;
+        background: rgba(255, 255, 255, 0.45);
+        border-radius: 2px;
+        outline: none;
+        cursor: pointer;
+      }
+      .volume-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: white;
+        cursor: pointer;
+      }
+      .volume-slider::-moz-range-thumb {
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: white;
+        cursor: pointer;
+        border: none;
+      }
+    </style>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to content</a>
@@ -59,16 +120,31 @@
       <section id="profile" class="section profile-hero">
         <div class="profile-hero-visual reveal">
           <video
+            id="hero-video"
             class="profile-hero-video"
             autoplay
             muted
             loop
             playsinline
             preload="auto"
-            aria-label="Field Generals trailer background video"
+            aria-label="Stephen Strout showreel background video"
           >
-            <source src="/public/portfolio/video/Field_Generals_Trailer01.mp4" type="video/mp4" />
+            <source src="/public/portfolio/video/Ss.com_Trailer_280526_.mp4" type="video/mp4" />
           </video>
+          <div class="video-audio-controls">
+            <button id="mute-btn" class="mute-btn" aria-label="Unmute video">
+              <svg id="icon-muted" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <line x1="23" y1="9" x2="17" y2="15"></line>
+                <line x1="17" y1="9" x2="23" y2="15"></line>
+              </svg>
+              <svg id="icon-sound" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              </svg>
+            </button>
+            <input id="volume-slider" type="range" min="0" max="1" step="0.05" value="1" class="volume-slider" aria-label="Volume control" />
+          </div>
         </div>
         <div class="profile-hero-title reveal">
           <h1 id="profile-title"></h1>
@@ -132,5 +208,37 @@
     </footer>
 
     <script type="module" src="scripts/app.js?v=20260415f"></script>
+    <script>
+      (function () {
+        var video = document.getElementById('hero-video');
+        var muteBtn = document.getElementById('mute-btn');
+        var iconMuted = document.getElementById('icon-muted');
+        var iconSound = document.getElementById('icon-sound');
+        var slider = document.getElementById('volume-slider');
+
+        muteBtn.addEventListener('click', function () {
+          video.muted = !video.muted;
+          iconMuted.style.display = video.muted ? 'block' : 'none';
+          iconSound.style.display = video.muted ? 'none' : 'block';
+          if (!video.muted) {
+            video.volume = parseFloat(slider.value);
+          }
+        });
+
+        slider.addEventListener('input', function () {
+          var val = parseFloat(slider.value);
+          video.volume = val;
+          if (val === 0) {
+            video.muted = true;
+            iconMuted.style.display = 'block';
+            iconSound.style.display = 'none';
+          } else if (video.muted) {
+            video.muted = false;
+            iconMuted.style.display = 'none';
+            iconSound.style.display = 'block';
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
