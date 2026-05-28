@@ -1,810 +1,241 @@
-:root {
-  --bg: #ffffff;
-  --surface: #f4f1ec;
-  --surface-soft: #faf8f5;
-  --text: #111111;
-  --muted: #635d56;
-  --line: #e8e0d7;
-  --line-strong: #c8bbac;
-  --max-width: 1240px;
-  --radius: 22px;
-}
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-  background: var(--bg);
-  color: var(--text);
-  font-family: "Manrope", sans-serif;
-  line-height: 1.65;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-}
-
-a {
-  color: inherit;
-}
-
-button,
-a {
-  transition:
-    transform 180ms ease,
-    opacity 180ms ease,
-    background-color 180ms ease,
-    border-color 180ms ease,
-    color 180ms ease;
-}
-
-button {
-  font: inherit;
-}
-
-.skip-link {
-  position: absolute;
-  left: 1rem;
-  top: -3rem;
-  z-index: 50;
-  padding: 0.75rem 1rem;
-  background: #111;
-  color: #fff;
-  border-radius: 999px;
-}
-
-.skip-link:focus {
-  top: 1rem;
-}
-
-.site-header,
-.section,
-.site-footer {
-  width: min(calc(100% - 2rem), var(--max-width));
-  margin: 0 auto;
-}
-
-/* ── HEADER: solid black full-width bar ── */
-.site-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100% !important;
-  max-width: none !important;
-  margin: 0 !important;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.85rem 2.5rem;
-  background: #0a0a0a;
-  backdrop-filter: none;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-}
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.85rem;
-  text-decoration: none;
-}
-
-/* Logo: no circle, full size */
-.brand-mark {
-  width: 3.2rem;
-  height: 3.2rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  overflow: visible;
-  border-radius: 0;
-  border: none;
-  background: transparent;
-}
-
-.brand-mark img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.brand-text {
-  display: grid;
-}
-
-.brand-text span:first-child {
-  font-weight: 800;
-  font-size: 0.98rem;
-  color: #fff;
-}
-
-.brand-text span:last-child {
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 0.82rem;
-}
-
-/* Nav links: white, bold, uppercase */
-.site-nav {
-  display: flex;
-  gap: 2.2rem;
-}
-
-.site-nav a {
-  text-decoration: none;
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #ffffff;
-  text-shadow: none;
-  opacity: 0.9;
-}
-
-.site-nav a:hover {
-  opacity: 1;
-  color: #ffffff;
-}
-
-.nav-toggle {
-  display: none;
-  border: 1px solid rgba(255,255,255,0.25);
-  background: rgba(255,255,255,0.08);
-  color: #fff;
-  border-radius: 999px;
-  padding: 0.7rem 1rem;
-}
-
-.section {
-  padding: 4.5rem 0;
-}
-
-.eyebrow {
-  margin: 0 0 1rem;
-  color: #6a6158;
-  font-size: 0.74rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
-
-/* Push anchors below fixed header */
-#profile,
-#projects,
-#contact {
-  scroll-margin-top: 5rem;
-}
-
-.profile-hero {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0;
-  align-items: start;
-  width: 100%;
-  max-width: none;
-}
-
-.profile-hero-title h1,
-.contact-card h2,
-.project-detail-title {
-  margin: 0;
-  font-family: "Instrument Serif", serif;
-  font-weight: 400;
-  letter-spacing: -0.03em;
-}
-
-.profile-hero-title h1 {
-  font-size: clamp(2.9rem, 5.45vw, 5.85rem);
-  line-height: 1;
-  max-width: none;
-  white-space: nowrap;
-  color: #df6a1f;
-  letter-spacing: -0.01em;
-}
-
-.lead,
-.section-intro,
-.profile-paragraphs p,
-.sidebar-copy,
-.site-footer,
-.project-description,
-.project-facts,
-.project-meta,
-.project-card-meta,
-.project-card-year {
-  color: var(--muted);
-}
-
-.lead,
-.section-intro,
-.profile-paragraphs p,
-.project-description {
-  font-size: 1.05rem;
-}
-
-.hero-actions,
-.contact-actions,
-.profile-links,
-.project-detail-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.85rem;
-}
-
-.button,
-.text-link,
-.imdb-link,
-.project-title-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 3.15rem;
-  padding: 0.9rem 1.2rem;
-  border-radius: 999px;
-  border: 1px solid var(--line-strong);
-  text-decoration: none;
-  font-weight: 700;
-}
-
-.button-primary {
-  background: #111;
-  border-color: #111;
-  color: #fff;
-}
-
-.button-secondary,
-.text-link {
-  background: #fff;
-  color: #111;
-}
-
-.button:hover,
-.button:focus-visible,
-.text-link:hover,
-.text-link:focus-visible,
-.imdb-link:hover,
-.imdb-link:focus-visible,
-.project-title-link:hover,
-.project-title-link:focus-visible,
-.project-card-link:hover,
-.project-card-link:focus-visible,
-.project-card-open:hover,
-.project-card-open:focus-visible {
-  transform: translateY(-2px);
-}
-
-.profile-hero-visual {
-  position: relative;
-  min-height: clamp(22rem, 58vw, 42rem);
-  overflow: hidden;
-  background: #000;
-}
-
-.profile-hero-title {
-  width: min(calc(100% - 2rem), var(--max-width));
-  margin: 0 auto;
-  padding-top: 0.2rem;
-  padding-bottom: 0.35rem;
-  text-align: left;
-}
-
-.profile-hero-title[hidden] {
-  display: none;
-}
-
-.profile-hero-video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.profile-hero-visual::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 46%, rgba(0, 0, 0, 0.16) 72%, rgba(0, 0, 0, 0.58) 100%);
-  pointer-events: none;
-}
-
-.profile-body {
-  border-top: 1px solid var(--line);
-  padding-top: 0.4rem;
-}
-
-.profile-body-flow {
-  width: min(calc(100% - 2rem), 48rem);
-  margin: 0;
-  display: grid;
-  gap: 0.5rem;
-  justify-items: start;
-}
-
-.profile-landing-gif {
-  margin: -0.2rem 0 -0.3rem;
-  width: min(100%, 43rem);
-}
-
-.profile-landing-gif img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.profile-paragraphs {
-  display: grid;
-  gap: 1rem;
-}
-
-.profile-paragraphs p {
-  margin: 0;
-}
-
-.sidebar-copy {
-  white-space: pre-line;
-}
-
-.profile-panel {
-  border-top: 1px solid var(--line);
-  padding-top: 1rem;
-}
-
-.profile-paragraphs + .profile-panel {
-  margin-top: 1.8rem;
-}
-
-.acclaim-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(16rem, 19.5rem);
-  gap: 2rem;
-  align-items: start;
-}
-
-.acclaim-copy {
-  min-width: 0;
-}
-
-.acclaim-media {
-  display: flex;
-  flex-direction: column;
-  gap: 0.95rem;
-  width: 17rem;
-  justify-self: end;
-  align-items: center;
-}
-
-.acclaim-portrait {
-  margin: 0;
-  width: 100%;
-}
-
-.acclaim-portrait img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-.acclaim-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-  width: 100%;
-  justify-content: center;
-}
-
-.imdb-link {
-  min-width: auto;
-  min-height: auto;
-  padding: 0;
-  background: #f5c518;
-  border-color: #d8af00;
-  color: #111;
-  border-radius: 999px;
-}
-
-.imdb-link-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 0;
-  padding: 0.42rem 0.78rem;
-  background: transparent;
-  color: #111;
-  border-radius: 0;
-  font-weight: 800;
-  font-size: 0.82rem;
-  letter-spacing: 0;
-  line-height: 1;
-}
-
-.cv-link .imdb-link-mark {
-  min-width: 2.4rem;
-}
-
-.projects-section {
-  width: 100%;
-  max-width: none;
-  padding: 4rem 0 5rem;
-}
-
-.contact-section {
-  width: min(calc(100% - 2rem), var(--max-width));
-  margin: 0 auto;
-  padding-top: 4.8rem;
-  padding-bottom: 4.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-top: 0 !important;
-  background-image: none !important;
-}
-
-.contact-card {
-  width: min(100%, 39.5rem);
-  margin: 0 auto;
-  padding-top: 0;
-  text-align: center;
-  border: 0 !important;
-  box-shadow: none;
-  outline: 0;
-  background-image: none !important;
-}
-
-.contact-section::before,
-.contact-section::after,
-.contact-card::before,
-.contact-card::after {
-  content: none !important;
-  border: 0 !important;
-  background: none !important;
-}
-
-.contact-card h2 {
-  font-family: "Instrument Serif", serif;
-  font-size: clamp(1.3rem, 2.6vw, 2.05rem);
-  font-style: italic;
-  font-weight: 400;
-  letter-spacing: -0.02em;
-  line-height: 1.05;
-  text-transform: none;
-  background: transparent;
-  padding: 0;
-}
-
-.contact-actions {
-  margin-top: 0.9rem;
-  justify-content: center;
-}
-
-.contact-cta {
-  min-width: 12.8rem;
-  min-height: 4rem;
-  padding: 1rem 1.5rem;
-  border-radius: 0;
-  border-color: var(--line-strong);
-  background: transparent;
-  color: #111;
-  font-size: 0.95rem;
-  font-weight: 800;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-}
-
-.site-footer {
-  width: 100%;
-  max-width: none;
-  padding: 1.25rem 0 0;
-  overflow: visible;
-}
-
-.site-footer-image {
-  margin: 0;
-  width: 100vw;
-  max-width: none;
-  margin-left: calc(50% - 50vw);
-}
-
-.site-footer-image img {
-  display: block;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-}
-
-.projects-page-head {
-  margin: 0 auto 2rem;
-  width: min(calc(100% - 2rem), 1380px);
-}
-
-.projects-page-head h2 {
-  margin: 0;
-  font-family: "Instrument Serif", serif;
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  font-weight: 400;
-  letter-spacing: -0.03em;
-}
-
-.projects-list {
-  display: block;
-}
-
-.projects-columns {
-  display: grid;
-  grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
-  gap: 0;
-  align-items: start;
-}
-
-.projects-column {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.project-card-poster {
-  display: block;
-  margin: 0;
-}
-
-.project-card-link {
-  display: block;
-  width: 100%;
-  text-decoration: none;
-}
-
-.project-card-image {
-  display: block;
-  width: 100%;
-  height: auto;
-  background: transparent;
-}
-
-.project-card--on-freddie-roach .project-card-image {
-  width: 100%;
-  min-height: 100%;
-}
-
-.project-card-placeholder {
-  min-height: 28rem;
-  display: grid;
-  place-items: center;
-  background: var(--surface-soft);
-  color: var(--muted);
-}
-
-.project-card-info {
-  display: grid;
-  gap: 0.45rem;
-}
-
-.project-card-year {
-  margin: 0;
-  font-size: 0.78rem;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
-
-.project-card-title {
-  margin: 0;
-  font-size: clamp(1.45rem, 2vw, 2rem);
-  line-height: 1.05;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-
-.project-card-meta {
-  margin: 0;
-  font-size: 0.98rem;
-}
-
-.project-card-open {
-  width: fit-content;
-  margin-top: 0.3rem;
-  color: #111;
-  text-decoration: underline;
-  text-underline-offset: 0.18em;
-  text-decoration-thickness: 1px;
-}
-
-.contact-section {
-  padding-bottom: 1.5rem;
-}
-
-.site-footer {
-  width: 100%;
-  max-width: none;
-  padding: 1.25rem 0 0;
-  font-size: 0.9rem;
-  margin: 0;
-}
-
-.project-detail-page {
-  padding-top: 5rem;
-}
-
-.project-detail {
-  display: grid;
-  grid-template-columns: minmax(260px, 360px) minmax(0, 1fr);
-  gap: 2.5rem;
-  align-items: start;
-}
-
-.project-detail-media {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-}
-
-.project-detail-poster {
-  width: 100%;
-  height: auto;
-  max-height: none;
-  object-fit: contain;
-}
-
-.project-detail-copy {
-  display: grid;
-  gap: 0.85rem;
-}
-
-.project-detail-title {
-  font-size: clamp(2.6rem, 5vw, 4.8rem);
-  line-height: 0.95;
-}
-
-.project-title-link {
-  min-height: auto;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-  color: #111;
-  justify-content: flex-start;
-  text-decoration: underline;
-  text-underline-offset: 0.16em;
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(34px);
-  transition:
-    opacity 750ms ease,
-    transform 750ms ease;
-  transition-delay: var(--delay, 0ms);
-}
-
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  .reveal,
-  button,
-  a {
-    transition: none;
-    transform: none;
-  }
-}
-
-@media (max-width: 980px) {
-  .profile-hero,
-  .project-detail {
-    grid-template-columns: 1fr;
-  }
-
-  .site-header {
-    flex-wrap: wrap;
-    padding: 0.85rem 1.25rem;
-  }
-
-  .nav-toggle {
-    display: inline-flex;
-    margin-left: auto;
-  }
-
-  .site-nav {
-    width: 100%;
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    padding: 0.75rem 0 0.5rem;
-  }
-
-  .site-header.is-open .site-nav {
-    display: flex;
-  }
-}
-
-@media (max-width: 640px) {
-  .site-header,
-  .section,
-  .projects-section {
-    width: min(calc(100% - 1rem), 1380px);
-  }
-
-  .site-footer {
-    width: 100%;
-  }
-
-  .site-footer-image {
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-  }
-
-  .section {
-    padding: 3.8rem 0;
-  }
-
-  .projects-section {
-    width: 100%;
-  }
-
-  .projects-page-head {
-    width: min(calc(100% - 1rem), 1380px);
-  }
-
-  .profile-body-flow {
-    width: min(calc(100% - 1rem), 48rem);
-  }
-
-  .acclaim-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .acclaim-media {
-    width: min(100%, 19.5rem);
-  }
-
-  .profile-hero-title {
-    width: min(calc(100% - 1rem), var(--max-width));
-  }
-
-  .profile-hero-title h1,
-  .project-detail-title,
-  .contact-card h2,
-  .projects-page-head h2 {
-    font-size: clamp(3rem, 14vw, 4.8rem);
-    white-space: normal;
-  }
-
-  .hero-actions,
-  .contact-actions,
-  .profile-links,
-  .project-detail-links {
-    flex-direction: column;
-  }
-
-  .button,
-  .text-link,
-  .imdb-link {
-    width: 100%;
-  }
-
-  .acclaim-actions {
-    width: 100%;
-  }
-
-  .acclaim-actions .imdb-link {
-    width: fit-content;
-  }
-
-  .profile-hero-visual {
-    min-height: 16rem;
-  }
-}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stephen Strout | Film Editor & Producer</title>
+    <meta
+      name="description"
+      content="Portfolio website for Los Angeles film editor and producer Stephen Strout, featuring profile, projects, and contact information."
+    />
+    <meta
+      name="keywords"
+      content="Stephen Strout, film editor, producer, Los Angeles editor, documentary editor, projects"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Stephen Strout | Film Editor & Producer" />
+    <meta
+      property="og:description"
+      content="Profile, projects, and contact for Los Angeles film editor and producer Stephen Strout."
+    />
+    <meta property="og:image" content="/public/portfolio/social-share-placeholder.svg" />
+    <meta property="og:url" content="https://stephenstrout.com" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css?v=20260415c" />
+    <style>
+      .profile-hero-visual {
+        position: relative;
+      }
+      .video-audio-controls {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        z-index: 10;
+        background: rgba(0, 0, 0, 0.4);
+        padding: 8px 14px;
+        border-radius: 24px;
+        backdrop-filter: blur(6px);
+      }
+      .mute-btn {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        opacity: 0.85;
+        transition: opacity 0.2s;
+      }
+      .mute-btn:hover {
+        opacity: 1;
+      }
+      .volume-slider {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 80px;
+        height: 3px;
+        background: rgba(255, 255, 255, 0.45);
+        border-radius: 2px;
+        outline: none;
+        cursor: pointer;
+      }
+      .volume-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: white;
+        cursor: pointer;
+      }
+      .volume-slider::-moz-range-thumb {
+        width: 13px;
+        height: 13px;
+        border-radius: 50%;
+        background: white;
+        cursor: pointer;
+        border: none;
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="#profile" aria-label="Go to profile">
+        <span class="brand-mark">
+          <img src="data:image/png;base64,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" alt="Stephen Strout" />
+        </span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span>Menu</span>
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <a href="#projects">DOCUMENTARY</a>
+        <a href="#projects">FILM</a>
+        <a href="#profile">PROFILE</a>
+        <a href="#contact">CONNECT</a>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section id="profile" class="section profile-hero">
+        <div class="profile-hero-visual reveal">
+          <video
+            id="hero-video"
+            class="profile-hero-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            aria-label="Stephen Strout showreel background video"
+          >
+            <source src="/public/portfolio/video/Ss.com_Trailer_280526_.mp4" type="video/mp4" />
+          </video>
+          <div class="video-audio-controls">
+            <button id="mute-btn" class="mute-btn" aria-label="Unmute video">
+              <svg id="icon-muted" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <line x1="23" y1="9" x2="17" y2="15"></line>
+                <line x1="17" y1="9" x2="23" y2="15"></line>
+              </svg>
+              <svg id="icon-sound" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+              </svg>
+            </button>
+            <input id="volume-slider" type="range" min="0" max="1" step="0.05" value="1" class="volume-slider" aria-label="Volume control" />
+          </div>
+        </div>
+        <div class="profile-hero-title reveal">
+          <h1 id="profile-title"></h1>
+        </div>
+      </section>
+
+      <section class="section profile-body">
+        <div class="profile-body-flow">
+          <div id="profile-paragraphs" class="profile-paragraphs reveal"></div>
+          <div class="profile-panel reveal">
+            <div class="acclaim-layout">
+              <div class="acclaim-copy">
+                <p class="eyebrow">Critical Acclaim</p>
+                <p id="recognition-text" class="sidebar-copy"></p>
+              </div>
+              <aside class="acclaim-media">
+                <figure class="acclaim-portrait">
+                  <img
+                    id="profile-photo"
+                    src="/public/portfolio/stills/Stephen-Strout-Editor-Producer.png"
+                    alt="Stephen Strout portrait"
+                  />
+                </figure>
+                <div class="acclaim-actions">
+                  <a id="profile-imdb-link" class="imdb-link" href="#" aria-label="IMDb Profile" title="IMDb Profile">
+                    <span class="imdb-link-mark" aria-hidden="true">IMDb</span>
+                  </a>
+                  <a id="profile-cv-link" class="imdb-link cv-link" href="#" download>
+                    <span class="imdb-link-mark" aria-hidden="true">CV</span>
+                  </a>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section projects-section">
+        <div class="projects-page-head reveal">
+          <h2>Projects</h2>
+          <p id="projects-intro" class="section-intro"></p>
+        </div>
+
+        <div id="projects-list" class="projects-list"></div>
+      </section>
+
+      <section id="contact" class="section contact-section">
+        <div class="contact-card reveal">
+          <h2 id="contact-heading"></h2>
+          <div class="contact-actions">
+            <a id="email-link" class="button contact-cta" href="#">Say Hello</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <figure class="site-footer-image">
+        <img src="/public/portfolio/stills/PETE_and_Ss_cutting_In_NYC_bottom.png" alt="Stephen Strout editing in New York" />
+      </figure>
+    </footer>
+
+    <script type="module" src="scripts/app.js?v=20260415f"></script>
+    <script>
+      (function () {
+        var video = document.getElementById('hero-video');
+        var muteBtn = document.getElementById('mute-btn');
+        var iconMuted = document.getElementById('icon-muted');
+        var iconSound = document.getElementById('icon-sound');
+        var slider = document.getElementById('volume-slider');
+
+        muteBtn.addEventListener('click', function () {
+          video.muted = !video.muted;
+          iconMuted.style.display = video.muted ? 'block' : 'none';
+          iconSound.style.display = video.muted ? 'none' : 'block';
+          if (!video.muted) {
+            video.volume = parseFloat(slider.value);
+          }
+        });
+
+        slider.addEventListener('input', function () {
+          var val = parseFloat(slider.value);
+          video.volume = val;
+          if (val === 0) {
+            video.muted = true;
+            iconMuted.style.display = 'block';
+            iconSound.style.display = 'none';
+          } else if (video.muted) {
+            video.muted = false;
+            iconMuted.style.display = 'none';
+            iconSound.style.display = 'block';
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
