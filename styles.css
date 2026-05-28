@@ -101,10 +101,10 @@ button {
   text-decoration: none;
 }
 
-/* Logo: no circle, blue filter */
+/* Logo: no circle, full size */
 .brand-mark {
-  width: 2.8rem;
-  height: 2.8rem;
+  width: 3.2rem;
+  height: 3.2rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
