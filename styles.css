@@ -74,19 +74,24 @@ button {
   margin: 0 auto;
 }
 
+/* ── HEADER: solid black full-width bar ── */
 .site-header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  z-index: 30;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 1.25rem 0;
-  background: transparent;
+  padding: 0.85rem 2.5rem;
+  background: #0a0a0a;
   backdrop-filter: none;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
 }
 
 .brand {
@@ -96,22 +101,24 @@ button {
   text-decoration: none;
 }
 
+/* Logo: no circle, blue filter */
 .brand-mark {
-  width: 2.7rem;
-  height: 2.7rem;
+  width: 2.8rem;
+  height: 2.8rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  border-radius: 50%;
-  border: 1px solid var(--line-strong);
-  background: var(--surface-soft);
+  overflow: visible;
+  border-radius: 0;
+  border: none;
+  background: transparent;
 }
 
 .brand-mark img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  filter: hue-rotate(215deg) saturate(2) brightness(1.6);
 }
 
 .brand-text {
@@ -129,23 +136,32 @@ button {
   font-size: 0.82rem;
 }
 
+/* Nav links: white, bold, uppercase */
 .site-nav {
   display: flex;
-  gap: 1.4rem;
+  gap: 2.2rem;
 }
 
 .site-nav a {
   text-decoration: none;
-  font-size: 0.9rem;
-  letter-spacing: 0.18em;
-  color: #df6a1f;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #ffffff;
   text-shadow: none;
+  opacity: 0.9;
+}
+
+.site-nav a:hover {
+  opacity: 1;
+  color: #ffffff;
 }
 
 .nav-toggle {
   display: none;
-  border: 1px solid var(--line);
-  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(255,255,255,0.08);
   color: #fff;
   border-radius: 999px;
   padding: 0.7rem 1rem;
@@ -161,6 +177,13 @@ button {
   font-size: 0.74rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
+}
+
+/* Push anchors below fixed header */
+#profile,
+#projects,
+#contact {
+  scroll-margin-top: 5rem;
 }
 
 .profile-hero {
@@ -687,6 +710,7 @@ button {
 
   .site-header {
     flex-wrap: wrap;
+    padding: 0.85rem 1.25rem;
   }
 
   .nav-toggle {
@@ -699,6 +723,8 @@ button {
     display: none;
     flex-direction: column;
     align-items: flex-start;
+    gap: 1rem;
+    padding: 0.75rem 0 0.5rem;
   }
 
   .site-header.is-open .site-nav {
